@@ -1,0 +1,38 @@
+# Configura le credenziali AWS
+aws configure
+
+# Mostra la configurazione attuale di AWS CLI
+aws configure list
+
+# Ottieni un valore specifico dalla configurazione
+aws configure get <config>
+
+# Imposta un valore specifico nella configurazione
+aws configure set <config> <value>
+
+# Mostra informazioni su tutti i volumi EBS esistenti
+aws ec2 describe-volumes
+
+# Crea un nuovo volume EBS con una dimensione specificata e tipo di volume
+aws ec2 create-volume --size 10 --availability-zone us-east-1a --volume-type gp2
+
+# Attacca un volume EBS a un'istanza EC2
+aws ec2 attach-volume --volume-id vol-xxxxxxxx --instance-id i-xxxxxxxx --device /dev/sdf
+
+# Stacca un volume EBS da un'istanza EC2
+aws ec2 detach-volume --volume-id vol-xxxxxxxx
+
+# Elimina un volume EBS esistente
+aws ec2 delete-volume --volume-id vol-xxxxxxxx
+
+# Modifica un volume EBS esistente (ad esempio, per cambiarne la dimensione)
+aws ec2 modify-volume --volume-id vol-xxxxxxxx --size 20
+
+# Mostra lo stato della modifica di un volume (es. se una modifica di dimensione è completata)
+aws ec2 describe-volumes-modifications --volume-id vol-xxxxxxxx
+
+# Crea uno snapshot di un volume EBS per effettuare un backup
+aws ec2 create-snapshot --volume-id vol-xxxxxxxx --description "Backup volume EBS"
+
+# Elimina uno snapshot di un volume EBS
+aws ec2 delete-snapshot --snapshot-id snap-xxxxxxxx
