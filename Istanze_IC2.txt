@@ -1,0 +1,23 @@
+aws ec2 describe-instances  # Descrive tutte le istanze EC2
+aws ec2 start-instances --instance-ids <instance-id>  # Avvia una o più istanze EC2
+aws ec2 stop-instances --instance-ids <instance-id>  # Ferma una o più istanze EC2
+aws ec2 terminate-instances --instance-ids <instance-id>  # Termina una o più istanze EC2
+aws ec2 run-instances --image-id <ami-id> --instance-type <instance-type>  # Avvia un'istanza EC2 con una AMI e tipo di istanza specifici
+aws ec2 reboot-instances --instance-ids <instance-id>  # Riavvia una o più istanze EC2
+aws ec2 describe-instance-status --instance-ids <instance-id>  # Mostra lo stato di una o più istanze EC2
+aws ec2 describe-images --image-ids <ami-id>  # Descrive un'immagine AMI specifica
+aws ec2 create-image --instance-id <instance-id> --name <image-name> --no-reboot  # Crea un'AMI da un'istanza EC2
+aws ec2 create-key-pair --key-name <key-name>  # Crea una nuova coppia di chiavi per il login SSH alle istanze EC2
+aws ec2 describe-key-pairs  # Elenca tutte le coppie di chiavi EC2
+aws ec2 delete-key-pair --key-name <key-name>  # Elimina una coppia di chiavi EC2
+aws ec2 associate-address --instance-id <instance-id> --public-ip <ip-address>  # Associa un indirizzo IP pubblico a un'istanza EC2
+aws ec2 disassociate-address --public-ip <ip-address>  # Dissocia un indirizzo IP pubblico da un'istanza EC2
+aws ec2 allocate-address  # Alloca un nuovo indirizzo IP elastico
+aws ec2 release-address --allocation-id <allocation-id>  # Rilascia un indirizzo IP elastico
+aws ec2 modify-instance-attribute --instance-id <instance-id> --no-disable-api-termination  # Modifica l'attributo di un'istanza EC2 (ad esempio, per disabilitare la terminazione)
+aws ec2 describe-security-groups  # Descrive i gruppi di sicurezza EC2
+aws ec2 create-security-group --group-name <group-name> --description <description>  # Crea un nuovo gruppo di sicurezza EC2
+aws ec2 authorize-security-group-ingress --group-id <group-id> --protocol tcp --port 22 --cidr <cidr-block>  # Aggiungi una regola di ingresso per SSH in un gruppo di sicurezza
+aws ec2 revoke-security-group-ingress --group-id <group-id> --protocol tcp --port 22 --cidr <cidr-block>  # Rimuovi una regola di ingresso per SSH da un gruppo di sicurezza
+aws ec2 describe-key-pairs  # Mostra tutte le coppie di chiavi EC2
+aws ec2 describe-availability-zones  # Mostra le zone di disponibilità nella regione selezionata
