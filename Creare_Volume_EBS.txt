@@ -1,0 +1,9 @@
+Per creare un volume EBS, puoi utilizzare un file JSON come input. Ecco un esempio di come farlo:
+
+Esempio di file JSON per creare un volume EBS
+
+{
+  "Size": 10,
+  "AvailabilityZone": "us-east-1a",
+  "VolumeType": "gp2"
+}
