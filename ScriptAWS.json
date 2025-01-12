@@ -1,0 +1,40 @@
+{
+  "createVolume": {
+    "Size": 10,
+    "AvailabilityZone": "us-east-1a",
+    "VolumeType": "gp2"
+  },
+  "createInstance": {
+    "ImageId": "ami-xxxxxxxx",
+    "InstanceType": "t2.micro",
+    "MinCount": 1,
+    "MaxCount": 1,
+    "KeyName": "my-key-pair",
+    "SecurityGroupIds": ["sg-xxxxxxxx"],
+    "SubnetId": "subnet-xxxxxxxx"
+  },
+  "createBucket": {
+    "Bucket": "my-new-bucket-name"
+  },
+  "createIAMUser": {
+    "UserName": "new-user",
+    "PermissionsBoundary": "arn:aws:iam::aws:policy/AdministratorAccess"
+  },
+  "createSecurityGroup": {
+    "Description": "Security group for my EC2 instance",
+    "GroupName": "my-security-group",
+    "VpcId": "vpc-xxxxxxxx"
+  },
+  "cloudFormationTemplate": {
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+      "MyEC2Instance": {
+        "Type": "AWS::EC2::Instance",
+        "Properties": {
+          "InstanceType": "t2.micro",
+          "ImageId": "ami-xxxxxxxx"
+        }
+      }
+    }
+  }
+}
