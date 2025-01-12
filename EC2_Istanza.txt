@@ -1,0 +1,12 @@
+Creare un'Istanza EC2 (Macchina Virtuale) con JSON
+Esempio di file JSON per creare un'istanza EC2:
+
+{
+  "ImageId": "ami-xxxxxxxx",
+  "InstanceType": "t2.micro",
+  "MinCount": 1,
+  "MaxCount": 1,
+  "KeyName": "my-key-pair",
+  "SecurityGroupIds": ["sg-xxxxxxxx"],
+  "SubnetId": "subnet-xxxxxxxx"
+}
