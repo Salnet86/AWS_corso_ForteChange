@@ -1,0 +1,54 @@
+aws configure
+aws configure list
+aws configure get <config>
+aws configure set <config> <value>
+aws ec2 describe-instances
+aws ec2 start-instances --instance-ids <instance-id>
+aws ec2 stop-instances --instance-ids <instance-id>
+aws ec2 terminate-instances --instance-ids <instance-id>
+aws ec2 run-instances --image-id <ami-id> --instance-type <type>
+aws ec2 reboot-instances --instance-ids <instance-id>
+aws s3 ls
+aws s3 mb s3://<bucket-name>
+aws s3 rb s3://<bucket-name>
+aws s3 cp <file> s3://<bucket-name>/<path>
+aws s3 sync <local-dir> s3://<bucket-name>
+aws iam create-user --user-name <username>
+aws iam delete-user --user-name <username>
+aws iam list-users
+aws iam create-policy --policy-name <policy-name> --policy-document file://policy.json
+aws iam attach-user-policy --user-name <username> --policy-arn <policy-arn>
+aws rds describe-db-instances
+aws rds create-db-instance --db-instance-identifier <db-name> --allocated-storage <size> --db-instance-class <class>
+aws rds delete-db-instance --db-instance-identifier <db-name>
+aws lambda list-functions
+aws lambda create-function --function-name <function-name> --runtime <runtime> --role <role-arn> --handler <handler>
+aws lambda invoke --function-name <function-name> output.txt
+aws lambda delete-function --function-name <function-name>
+aws cloudformation create-stack --stack-name <stack-name> --template-body file://template.json
+aws cloudformation delete-stack --stack-name <stack-name>
+aws cloudwatch describe-alarms
+aws cloudwatch set-alarm-state --alarm-name <alarm-name> --state-value <state-value>
+aws cloudwatch put-metric-data --namespace <namespace> --metric-name <metric-name> --value <value>
+aws ec2 describe-vpcs
+aws ec2 create-vpc --cidr-block <cidr-block>
+aws ec2 delete-vpc --vpc-id <vpc-id>
+aws route53 list-hosted-zones
+aws route53 create-hosted-zone --name <domain-name> --caller-reference <unique-string>
+aws route53 change-resource-record-sets --hosted-zone-id <zone-id> --change-batch file://changes.json
+aws elb describe-load-balancers
+aws elb create-load-balancer --load-balancer-name <elb-name> --listeners Protocol=HTTP,LoadBalancerPort=80,InstanceProtocol=HTTP,InstancePort=80
+aws elb delete-load-balancer --load-balancer-name <elb-name>
+aws autoscaling describe-auto-scaling-groups
+aws autoscaling create-auto-scaling-group --auto-scaling-group-name <group-name> --min-size <min> --max-size <max> --desired-capacity <capacity>
+aws autoscaling delete-auto-scaling-group --auto-scaling-group-name <group-name>
+aws elasticbeanstalk create-application --application-name <app-name>
+aws elasticbeanstalk describe-environments
+aws elasticbeanstalk delete-application --application-name <app-name>
+aws es describe-elasticsearch-domains
+aws es create-elasticsearch-domain --domain-name <domain-name>
+aws es delete-elasticsearch-domain --domain-name <domain-name>
+aws sqs list-queues
+aws sqs send-message --queue-url <queue-url> --message-body <message-body>
+aws sqs receive-message --queue-url <queue-url>
+aws sqs delete-message --queue-url <queue-url> --receipt-handle <receipt-handle>
