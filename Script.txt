@@ -1,0 +1,64 @@
+aws configure                                  # Configura le credenziali AWS
+aws configure list                              # Mostra la configurazione attuale di AWS CLI
+aws configure get <config>                      # Ottieni un valore specifico dalla configurazione
+aws configure set <config> <value>              # Imposta un valore specifico nella configurazione
+
+aws ec2 describe-instances                     # Descrive le istanze EC2
+aws ec2 start-instances --instance-ids <instance-id>  # Avvia una o più istanze EC2
+aws ec2 stop-instances --instance-ids <instance-id>   # Ferma una o più istanze EC2
+aws ec2 terminate-instances --instance-ids <instance-id>  # Termina una o più istanze EC2
+aws ec2 run-instances --image-id <ami-id> --instance-type <type>  # Avvia un'istanza EC2 con specifiche configurazioni
+aws ec2 reboot-instances --instance-ids <instance-id>  # Riavvia un'istanza EC2
+aws ec2 describe-volumes                       # Descrive i volumi EBS associati alle istanze EC2
+
+aws s3 ls                                      # Elenca i contenuti di un bucket S3
+aws s3 mb s3://<bucket-name>                    # Crea un nuovo bucket S3
+aws s3 rb s3://<bucket-name>                    # Rimuove un bucket S3
+aws s3 cp <file> s3://<bucket-name>/<path>      # Carica un file nel bucket S3
+aws s3 sync <local-dir> s3://<bucket-name>      # Sincronizza una directory locale con un bucket S3
+
+aws iam create-user --user-name <username>      # Crea un nuovo utente IAM
+aws iam delete-user --user-name <username>      # Elimina un utente IAM
+aws iam list-users                              # Elenca tutti gli utenti IAM
+aws iam create-policy --policy-name <policy-name> --policy-document file://policy.json  # Crea una policy IAM
+aws iam attach-user-policy --user-name <username> --policy-arn <policy-arn>  # Assegna una policy a un utente IAM
+
+aws rds describe-db-instances                  # Descrive le istanze di database RDS
+aws rds create-db-instance --db-instance-identifier <db-name> --allocated-storage <size> --db-instance-class <class>  # Crea una nuova istanza RDS
+aws rds delete-db-instance --db-instance-identifier <db-name>  # Elimina un'istanza RDS
+
+aws lambda list-functions                       # Elenca tutte le funzioni Lambda
+aws lambda create-function --function-name <function-name> --runtime <runtime> --role <role-arn> --handler <handler>  # Crea una nuova funzione Lambda
+aws lambda invoke --function-name <function-name> output.txt  # Esegui una funzione Lambda
+aws lambda delete-function --function-name <function-name>  # Elimina una funzione Lambda
+
+aws cloudformation create-stack --stack-name <stack-name> --template-body file://template.json  # Crea uno stack CloudFormation
+aws cloudformation delete-stack --stack-name <stack-name>  # Elimina uno stack CloudFormation
+
+aws cloudwatch describe-alarms                  # Descrive gli allarmi di CloudWatch
+aws cloudwatch set-alarm-state --alarm-name <alarm-name> --state-value <state-value>  # Imposta lo stato di un allarme CloudWatch
+aws cloudwatch put-metric-data --namespace <namespace> --metric-name <metric-name> --value <value>  # Invia dati di metriche a CloudWatch
+
+aws ec2 describe-vpcs                          # Descrive le VPC disponibili
+aws ec2 create-vpc --cidr-block <cidr-block>    # Crea una nuova VPC con un blocco CIDR specificato
+aws ec2 delete-vpc --vpc-id <vpc-id>            # Elimina una VPC
+
+aws route53 list-hosted-zones                  # Elenca le zone ospitate in Route 53
+aws route53 create-hosted-zone --name <domain-name> --caller-reference <unique-string>  # Crea una zona ospitata in Route 53
+aws route53 change-resource-record-sets --hosted-zone-id <zone-id> --change-batch file://changes.json  # Modifica i record in una zona ospitata
+
+aws elb describe-load-balancers                # Elenca i load balancer Elastic Load Balancing
+aws elb create-load-balancer --load-balancer-name <elb-name> --listeners Protocol=HTTP,LoadBalancerPort=80,InstanceProtocol=HTTP,InstancePort=80  # Crea un load balancer
+aws elb delete-load-balancer --load-balancer-name <elb-name>  # Elimina un load balancer
+
+aws autoscaling describe-auto-scaling-groups    # Descrive i gruppi di auto scaling
+aws autoscaling create-auto-scaling-group --auto-scaling-group-name <group-name> --min-size <min> --max-size <max> --desired-capacity <capacity>  # Crea un gruppo di auto scaling
+aws autoscaling delete-auto-scaling-group --auto-scaling-group-name <group-name>  # Elimina un gruppo di auto scaling
+
+aws elasticbeanstalk create-application --application-name <app-name>  # Crea una nuova applicazione Elastic Beanstalk
+aws elasticbeanstalk describe-environments   # Descrive gli ambienti di Elastic Beanstalk
+aws elasticbeanstalk delete-application --application-name <app-name>  # Elimina un'applicazione Elastic Beanstalk
+
+aws es describe-elasticsearch-domains        # Elenca i domini Elasticsearch
+aws es create-elasticsearch-domain --domain-name <domain-name>  # Crea un dominio Elasticsearch
+aws es delete-elasticsearch-domain --domain-name <domain-name>  # Elimina un dominio Elasticsearch
