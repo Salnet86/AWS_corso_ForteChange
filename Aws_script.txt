@@ -1,0 +1,83 @@
+# Configurazione delle credenziali AWS
+aws configure                         # Configura le credenziali (access key, secret key, regione, formato di output)
+aws configure list                    # Visualizza le configurazioni correnti
+aws configure get <config>            # Ottiene una configurazione specifica
+aws configure set <config> <value>    # Imposta un valore di configurazione
+
+# Gestione delle istanze EC2
+aws ec2 describe-instances            # Elenca le istanze EC2
+aws ec2 start-instances --instance-ids <instance-id>   # Avvia un'istanza EC2
+aws ec2 stop-instances --instance-ids <instance-id>    # Ferma un'istanza EC2
+aws ec2 terminate-instances --instance-ids <instance-id>  # Termina un'istanza EC2
+aws ec2 run-instances --image-id <ami-id> --instance-type <type>  # Avvia un'istanza EC2 con una specifica AMI e tipo di istanza
+aws ec2 reboot-instances --instance-ids <instance-id>  # Riavvia un'istanza EC2
+
+# Gestione dei bucket S3
+aws s3 ls                             # Elenca i bucket S3
+aws s3 mb s3://<bucket-name>           # Crea un nuovo bucket S3
+aws s3 rb s3://<bucket-name>           # Rimuove un bucket S3
+aws s3 cp <file> s3://<bucket-name>/<path>   # Carica un file su S3
+aws s3 sync <local-dir> s3://<bucket-name>    # Sincronizza una directory locale con un bucket S3
+
+# Gestione di IAM (Identity and Access Management)
+aws iam create-user --user-name <username>    # Crea un nuovo utente IAM
+aws iam delete-user --user-name <username>    # Elimina un utente IAM
+aws iam list-users                           # Elenca tutti gli utenti IAM
+aws iam create-policy --policy-name <policy-name> --policy-document file://policy.json  # Crea una nuova policy IAM
+aws iam attach-user-policy --user-name <username> --policy-arn <policy-arn>  # Collega una policy a un utente IAM
+
+# Gestione di RDS (Relational Database Service)
+aws rds describe-db-instances               # Elenca le istanze RDS
+aws rds create-db-instance --db-instance-identifier <db-name> --allocated-storage <size> --db-instance-class <class>   # Crea una nuova istanza RDS
+aws rds delete-db-instance --db-instance-identifier <db-name>   # Elimina un'istanza RDS
+
+# Gestione di Lambda
+aws lambda list-functions                  # Elenca le funzioni Lambda
+aws lambda create-function --function-name <function-name> --runtime <runtime> --role <role-arn> --handler <handler>  # Crea una funzione Lambda
+aws lambda invoke --function-name <function-name> output.txt  # Esegue una funzione Lambda
+aws lambda delete-function --function-name <function-name>  # Elimina una funzione Lambda
+
+# Gestione di CloudFormation
+aws cloudformation create-stack --stack-name <stack-name> --template-body file://template.json  # Crea uno stack CloudFormation
+aws cloudformation delete-stack --stack-name <stack-name>    # Elimina uno stack CloudFormation
+
+# Gestione di CloudWatch
+aws cloudwatch describe-alarms              # Elenca gli allarmi di CloudWatch
+aws cloudwatch set-alarm-state --alarm-name <alarm-name> --state-value <state-value>   # Imposta lo stato di un allarme
+aws cloudwatch put-metric-data --namespace <namespace> --metric-name <metric-name> --value <value>   # Pubblica un dato metrico su CloudWatch
+
+# Gestione di VPC (Virtual Private Cloud)
+aws ec2 describe-vpcs                      # Elenca i VPC
+aws ec2 create-vpc --cidr-block <cidr-block>  # Crea un nuovo VPC
+aws ec2 delete-vpc --vpc-id <vpc-id>        # Elimina un VPC
+
+# Gestione di Route 53 (DNS)
+aws route53 list-hosted-zones              # Elenca le zone ospitate di Route 53
+aws route53 create-hosted-zone --name <domain-name> --caller-reference <unique-string>  # Crea una zona ospitata
+aws route53 change-resource-record-sets --hosted-zone-id <zone-id> --change-batch file://changes.json   # Aggiungi o modifica record DNS
+
+# Gestione di Elastic Load Balancing (ELB)
+aws elb describe-load-balancers            # Elenca i bilanciatori di carico
+aws elb create-load-balancer --load-balancer-name <elb-name> --listeners Protocol=HTTP,LoadBalancerPort=80,InstanceProtocol=HTTP,InstancePort=80  # Crea un bilanciatore di carico ELB
+aws elb delete-load-balancer --load-balancer-name <elb-name>  # Elimina un bilanciator di carico ELB
+
+# Gestione di Auto Scaling
+aws autoscaling describe-auto-scaling-groups   # Elenca i gruppi di auto scaling
+aws autoscaling create-auto-scaling-group --auto-scaling-group-name <group-name> --min-size <min> --max-size <max> --desired-capacity <capacity>  # Crea un gruppo di auto scaling
+aws autoscaling delete-auto-scaling-group --auto-scaling-group-name <group-name>  # Elimina un gruppo di auto scaling
+
+# Gestione di Elastic Beanstalk
+aws elasticbeanstalk create-application --application-name <app-name>  # Crea un'applicazione Elastic Beanstalk
+aws elasticbeanstalk describe-environments  # Elenca gli ambienti Elastic Beanstalk
+aws elasticbeanstalk delete-application --application-name <app-name>  # Elimina un'applicazione Elastic Beanstalk
+
+# Gestione di Elasticsearch
+aws es describe-elasticsearch-domains      # Elenca i domini Elasticsearch
+aws es create-elasticsearch-domain --domain-name <domain-name>  # Crea un dominio Elasticsearch
+aws es delete-elasticsearch-domain --domain-name <domain-name>  # Elimina un dominio Elasticsearch
+
+# Gestione di SQS (Simple Queue Service)
+aws sqs list-queues                        # Elenca le code SQS
+aws sqs send-message --queue-url <queue-url> --message-body <message-body>  # Invia un messaggio a una coda SQS
+aws sqs receive-message --queue-url <queue-url>  # Riceve un messaggio da una coda SQS
+aws sqs delete-message --queue-url <queue-url> --receipt-handle <receipt-handle>  # Elimina un messaggio dalla coda SQS
