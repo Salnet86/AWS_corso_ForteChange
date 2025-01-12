@@ -1,0 +1,2 @@
+Comando AWS CLI per creare un volume usando il file JSON:
+aws ec2 create-volume --cli-input-json file://volume.json
